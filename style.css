@@ -72,7 +72,7 @@ body {
 
 .header__navigation .navigation__link--active,
 .header__navigation .navigation__link:hover {
-    color: var(--color-accent);
+    color: var(--color-accent) !important;
 }
 
 .header__navigation .navigation__link {
@@ -133,18 +133,19 @@ body {
     margin-bottom: 0;
 }
 
-
 .main-article__image-container {
     position: relative;
     grid-column: span 3;
     min-height: 185px;
     max-height: 344px;
+
 }
 .main-article__image {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    overflow: clip;
 }
 
 .main-article__content {
@@ -166,8 +167,6 @@ body {
 
 .main-article__category {
     margin-bottom: 7px;
-
-
 }
 
 .main-article__text {
