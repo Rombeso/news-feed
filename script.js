@@ -1,266 +1,151 @@
-// const data = {
-//     "sources": [{"id": 1, "name": "meduza"}, {"id": 6, "name": "3dnews"}, {"id": 7, "name": "nytimes"}, {
-//         "id": 8,
-//         "name": "forbes"
-//     }, {"id": 9, "name": "igromania"}, {"id": 10, "name": "buro237"}, {"id": 11, "name": "rusvesna"}, {
-//         "id": 12,
-//         "name": "7ya"
-//     }, {"id": 14, "name": "aif"}, {"id": 15, "name": "gazetaru"}, {"id": 16, "name": "karpov.courses"}],
-//     "categories": [{"id": 1, "name": "tech"}, {"id": 2, "name": "sport"}, {"id": 3, "name": "fashion"}, {
-//         "id": 4,
-//         "name": "politics"
-//     }, {"id": 5, "name": "other"}, {"id": 6, "name": "karpov.courses"}],
-//     "items": [{
-//         "id": 294493,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:39:19 GMT+0300 (Moscow Standard Time)",
-//         "title": "ВСУ в <span style='font-size: 100px;'> срочном </span> порядке перебрасывают резервы в Запорожскую область",
-//         "description": "Об этом сообщил член главного совета региональной администрации Владимир Рогов.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/4c6929114e39251f4ca80dedceae59fb.jpg",
-//         "source_id": 14,
-//         "category_id": 5
-//     }, {
-//         "id": 294504,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:34:21 GMT+0300 (Moscow Standard Time)",
-//         "title": "Пригожин направил в Белый дом письмо с вопросом о ЧВК «Вагнер»",
-//         "description": "Ранее США объявили группу преступной организацией и анонсировали дополнительные санкции.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/516055151e2406838d98e0828ec2c3a5.jpg",
-//         "source_id": 14,
-//         "category_id": 4
-//     }, {
-//         "id": 294522,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:28:56 GMT+0300 (Moscow Standard Time)",
-//         "title": "Япония будет добиваться проведения переговоров с РФ по рыбному промыслу у Курил",
-//         "description": "В посольстве Японии в Москве сообщили, что Токио будет добиваться проведения переговоров с Россией по рыбному промыслу у Курил. Об этом сообщает РИА Новости.\n\nВ посольстве сообщили, что японская сторона получила уведомление от российской, ...",
-//         "image": "https://img.gazeta.ru/files3/419/14492419/Depositphotos_413577114_XL-pic905-895x505-38545.jpg",
-//         "source_id": 15,
-//         "category_id": 4
-//     }, {
-//         "id": 294511,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:28:19 GMT+0300 (Moscow Standard Time)",
-//         "title": "Биткоин в ходе торгов растет более чем на 10%",
-//         "description": "Стоимость криптовалюты поднималась выше 23 тыс. долларов впервые с 19 августа 2022 года.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/ca40026e6d39a2959da03894b80a8285.jpg",
-//         "source_id": 14,
-//         "category_id": 4
-//     }, {
-//         "id": 294525,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:25:46 GMT+0300 (Moscow Standard Time)",
-//         "title": "\"Синьхуа\": экономическая активность Китая будет нарастать в 2023 году",
-//         "description": "Экономическая активность Китая в 2023 году будет постепенно восстанавливаться и нарастать. Об этом в интервью агентству \"Синьхуа\" заявил ведущий экономист банка Morgan Stanley Четан Ахья.\n\n\"Экономическая политика китайских ...",
-//         "image": "https://img.gazeta.ru/files3/32/13413032/AP_20105257441428-pic905-895x505-55197.jpg",
-//         "source_id": 15,
-//         "category_id": 4
-//     }, {
-//         "id": 294527,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:25:34 GMT+0300 (Moscow Standard Time)",
-//         "title": "Бывший главный экономист МВФ Рогофф сравнил РФ с Ираном из-за санкций",
-//         "description": "Профессор Гарвардского института и экс-главный экономист Международного валютного фонда Кеннет Рогофф провел параллель между РФ и Ираном на фоне введенных против стран санкций. Об этом сообщается в трансляции со Всемирного экономического ...",
-//         "image": "https://img.gazeta.ru/files3/694/12904694/2020-01-09T223152Z_779074053_RC2MCE979MYD_RTRMADP_3_IRAN-NUCLEAR-EUROPE-pic905-895x505-33395.jpg",
-//         "source_id": 15,
-//         "category_id": 4
-//     }, {
-//         "id": 294529,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:21:52 GMT+0300 (Moscow Standard Time)",
-//         "title": "\"Ъ\" сообщил, что мировые корпорации все чаще переносят свои заводы в Индию из Китая",
-//         "description": "Американская компания Apple стремится диверсифицировать свои цепочки поставок и перестать быть зависимой от Китая по части производства продукции на территории этой страны, написала газета \"Коммерсантъ\". \n\nГазета привела данные ...",
-//         "image": "https://img.gazeta.ru/files3/597/12211597/upload-RTX6ORPF-pic905-895x505-56410.jpg",
-//         "source_id": 15,
-//         "category_id": 4
-//     }, {
-//         "id": 294495,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:21:24 GMT+0300 (Moscow Standard Time)",
-//         "title": "Dead Space может завершиться иначе: на это намекает утечка достижений ремейка",
-//         "description": "Осторожно, спойлеры!",
-//         "image": "https://cdn.igromania.ru/mnt/news/a/6/0/7/3/6/122629/b004c38ef3a36f1a_848x477.jpg",
-//         "source_id": 9,
-//         "category_id": 1
-//     }, {
-//         "id": 294564,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:18:24 GMT+0300 (Moscow Standard Time)",
-//         "title": "Netflix заставит платить пользователей, использующих один аккаунт на двоих",
-//         "description": "Компания Netflix в опубликованном отчете за четвертый квартал 2022 года сообщила, что планирует начать бороться с пользователями, которые используют общий аккаунт.\n\nВ отчете говорится, что тестируемая продолжительное время дополнительная ...",
-//         "image": "http://img.gazeta.ru/files3/336/13448336/Depositphotos_114725462_l-2015-pic905-895x505-11970.jpg",
-//         "source_id": 15,
-//         "category_id": 1
-//     }, {
-//         "id": 294576,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:10:22 GMT+0300 (Moscow Standard Time)",
-//         "title": "Ученые показали, как выглядят Альпы из космоса после аномальной жары в Европе",
-//         "description": "Ученые из Европейского космического агентства опубликовали спутниковые снимки, на которых видно, что несколько альпийских курортов в январе 2023 года остались без снега. Об этом сообщается на сайте агентства.\n\nВ Европе 2023 год начался с ...",
-//         "image": "https://img.gazeta.ru/files3/61/16122061/loi-pic905-895x505-28928.jpg",
-//         "source_id": 15,
-//         "category_id": 1
-//     }, {
-//         "id": 294513,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:08:25 GMT+0300 (Moscow Standard Time)",
-//         "title": "В Минобороны Чехии опровергли готовность передать танки Leopard 2 Киеву",
-//         "description": "Речь идет о технике, полученной от Германии в качестве компенсации за поставки советских Т-72.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/f13c0f8f7ea67482f3ee4569459a07d3.jpg",
-//         "source_id": 14,
-//         "category_id": 5
-//     }, {
-//         "id": 294516,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:06:34 GMT+0300 (Moscow Standard Time)",
-//         "title": "МИД: ООН бездействует в вопросе возобновления экспорта российского аммиака",
-//         "description": "В ведомстве напомнили, что перевалка аммиака должна была начаться в рамках реализации черноморской инициативы.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/2d7dc93e117d455a21773e31fe8c8be6.jpg",
-//         "source_id": 14,
-//         "category_id": 4
-//     }, {
-//         "id": 294491,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:03:55 GMT+0300 (Moscow Standard Time)",
-//         "title": "Маск в суде ответил на претензии инвесторов Tesla ",
-//         "description": "Илон Макс выступил в суде по иску инвесторов, которые потеряли деньги после его твита о приватизации Tesla в 2018 году. Миллиардер подчеркнул, что люди не обязаны верить его словам в Twitter, особенно сделанным в «чрезвычайно болезненные и трудные» времена",
-//         "image": "",
-//         "source_id": 8,
-//         "category_id": 5
-//     }, {
-//         "id": 294518,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:02:55 GMT+0300 (Moscow Standard Time)",
-//         "title": "Сальдо заявил, что Путин постоянно общается с главами новых регионов",
-//         "description": "Врио губернатора Херсонской области отметил, что президент РФ держит ситуацию на контроле.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/a31ebd80bded3a979a9e54caebc41534.jpg",
-//         "source_id": 14,
-//         "category_id": 5
-//     }, {
-//         "id": 294519,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:02:01 GMT+0300 (Moscow Standard Time)",
-//         "title": "МИД РФ: говорить о нормализации экспорта сельхозпродукции не приходится",
-//         "description": "В министерстве отметили, что реализация черноморской инициативы продвигается с трудом.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/be9a460ba8f4663528931ac4ce1c73bc.jpg",
-//         "source_id": 14,
-//         "category_id": 4
-//     }, {
-//         "id": 294497,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 14:00:00 GMT+0300 (Moscow Standard Time)",
-//         "title": "«Джинни и Джорджия»: как Netflix превратил подростковый сериал в драму о материнстве",
-//         "description": "В январе на Netflix стартовал новый сезон американского сериала «Джинни и Джорджия», который рассказывает о матери двоих детей, переезжающей из штата в штат в поисках лучшей жизни. И если первый сезон казался  легким и симпатичным подростковым шоу, то во втором авторы совершили настоящий прорыв — и создали сложную, взрослую драму о соло-материнстве, абьюзе и его последствиях для всех членов семьи. Что моментально вывело проект в топ самых популярных сериалов на платформе",
-//         "image": "",
-//         "source_id": 8,
-//         "category_id": 5
-//     }, {
-//         "id": 294503,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 13:52:46 GMT+0300 (Moscow Standard Time)",
-//         "title": "Финальное обновление Marvel’s Avengers выпустят&amp;nbsp;31 марта",
-//         "description": "Поддержка прекратится 30 сентября.",
-//         "image": "https://cdn.igromania.ru/mnt/news/6/d/a/c/7/9/122628/293b2442fef3211a_848x477.jpg",
-//         "source_id": 9,
-//         "category_id": 1
-//     }, {
-//         "id": 294531,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 13:47:44 GMT+0300 (Moscow Standard Time)",
-//         "title": "Биткоин подорожал более чем на 10% ",
-//         "description": "Курс биткоина во время торговой сессии в субботу, 21 января, в 13.11 мск достиг отметки $23 199 (рост более чем на 10%), следует из данных Coindesk.\n\nВ последний раз стоимость биткоина поднималась выше $23 тыс. 19 августа прошлого ...",
-//         "image": "https://img.gazeta.ru/files3/575/13358575/RIAN_5613378.HR-pic905-895x505-81353.jpg",
-//         "source_id": 15,
-//         "category_id": 4
-//     }, {
-//         "id": 294521,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 13:41:28 GMT+0300 (Moscow Standard Time)",
-//         "title": "МИД пообещал ответить на блокировку счетов RT во Франции",
-//         "description": "Меры коснутся французских СМИ в России.",
-//         "image": "https://aif-s3.aif.ru/images/030/919/d7951cd3b19b86d65bc5235d15f4f54a.jpg",
-//         "source_id": 14,
-//         "category_id": 4
-//     }, {
-//         "id": 294577,
-//         "lang": "ru",
-//         "date": "Sat Jan 21 2023 13:37:00 GMT+0300 (Moscow Standard Time)",
-//         "title": "Ученые выяснили, как ограниченное по времени питание влияет на активность генов",
-//         "description": "Ученые из Института Солка выяснили, что ограниченное по времени питание изменяет активность генов мышей, синхронизируя биологические часы различных систем организма. Исследование опубликовано в журнале Cell Metabolism.\n\nМногочисленные ...",
-//         "image": "https://img.gazeta.ru/files3/699/14017699/Depositphotos_417979994_l-2015-pic905-895x505-91755.jpg",
-//         "source_id": 15,
-//         "category_id": 1
-//     }]
-// };
-
-let data
-
-
-
-const mainNewsContainer = document.querySelector('.articles__big-column');
-const smallNewsContainer = document.querySelector('.articles__small-column');
-
-// Экранирование тэгов
-
-const escapeString = (string) => {
-    const symbols = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;'
-    }
-
-    return string.replace(/[&<>]/g, (tag) => {
-        return symbols[tag] || tag;
-    })
+const categoryIds = {
+    index: 0,
+    sport: 2,
+    technologies: 1,
+    karpov: 6,
+    fashion: 3,
 }
 
+const categoryNames = {
+    index: 'Главная',
+    fashion: 'Мода',
+    technologies: 'Технологии',
+    sport: 'Спорт',
+    karpov: 'Karpov'
+}
 
-const renderNews = (categoryId) => {
-    console.log('работает')
-    fetch(`https://frontend.karpovcourses.net/api/v2/ru/news/${categoryId ? categoryId : ''}`)
-        .then(response => response.json())
-        .then(responseData => {
-            data = responseData;
-            const mainNews = data.items.slice(0, 3);
-            const smallNews = data.items.slice(3, 12);
-            mainNews.forEach(item => {
+const Navigation = ({ onNavClick, currentCategory, className = '' }) => {
+    return (
+        <nav className={`grid navigation ${className}`}>
+            <a className="navigation__logo" data-href="index" href="#">
+                <img className="navigation__logo-image" src="./images/logo.svg" alt="Логотип" />
+            </a>
+            <ul className="navigation__list">
+                {['index', 'fashion', 'technologies', 'sport', 'karpov'].map((item) => {
+                    return (
+                        <li className="navigation__item" key={item}>
+                            <a
+                                onClick={onNavClick}
+                                className={`navigation__link ${currentCategory === item ? 'navigation__link--active' : '' }`}
+                                data-href={item}
+                                href="#"
+                            >
+                                {categoryNames[item]}
+                            </a>
+                        </li>
+                    )
+                })}
+            </ul>
+        </nav>
+    )
+}
 
-                const template = document.createElement('template');
-                const categoryData = data.categories.find(categoryItems => categoryItems.id === item.category_id);
-                const sourceData = data.sources.find(sourceItems => sourceItems.id === item.source_id);
-
-                template.innerHTML = `
-    <article class="main-article">
-            <div class="main-article__image-container">
-                <img src="${encodeURI(item.image)}" alt="" class="main-article__image">
+const MainArticle = ({ title, image, category, description, source }) => {
+    return (
+        <article className="main-article">
+            <div className="main-article__image-container">
+                <img className="article-img main-article__img" src={image} alt="Фото новости" />
             </div>
-            <div class="main-article__content">
-                <span class="article-category main-article__category">${categoryData.name}</span>
-                <h2 class="main-article__title">${escapeString(item.title)}</h2>
-                <p class="main-article__text">${escapeString(item.description)}</p>
-                <span class="article-source main-article__source">${sourceData.name}</span>
+            <div className="main-article__content">
+        <span className="article-category">
+          {category}
+        </span>
+                <h2 className="main-article__title">{title}</h2>
+                <p className="main-article__text">{description}</p>
+                <span className="article-source main-article__caption">
+          {source}
+        </span>
             </div>
         </article>
-    `;
-
-                mainNewsContainer.appendChild(template.content);
-
-            })
-
-            smallNews.forEach(item => {
-                const template = document.createElement('template');
-                const source = data.sources.find(sourceItems => sourceItems.id === item.source_id)
-                const date = new Date(item.date).toLocaleDateString('ru-Ru', {month: 'long', day: 'numeric'})
-
-                template.innerHTML = `
-    <article class="small-article">
-    <h2 class="small-article__title">${escapeString(item.title)}</h2>
-   <span class="article-date small-article__date">${date}</span>
-    <span class="article-source small-article__source">${escapeString(source.name)}</span> </article>
-    `;
-
-                smallNewsContainer.appendChild(template.content);
-            })
-
-        })
+    )
 }
+
+const SmallArticle = ({ title, source, date }) => {
+    return (
+        <article className="small-article">
+            <h2 className="small-article__title">{title}</h2>
+            <span className="article-date">
+        {source}
+      </span>
+            <span className="article-source">
+        {new Date(date).toLocaleDateString('ru-RU', {
+            month: 'long',
+            day: 'numeric'
+        })}
+      </span>
+        </article>
+    )
+}
+
+const App = () => {
+    const [category, setCategory] = React.useState('index');
+    const [articles, setArticles] = React.useState({ items: [], categories: [], sources: [] });
+
+    const onNavClick = (e) => {
+        e.preventDefault();
+        setCategory(e.currentTarget.dataset.href);
+    }
+
+    React.useEffect(() => {
+        fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[category] || '')
+            .then(response => response.json())
+            .then((response) => {
+                setArticles(response);
+            })
+    }, [category])
+
+    return (
+        <React.Fragment>
+            <header className="header">
+                <div className="container">
+                    <Navigation onNavClick={onNavClick} currentCategory={category} className="header__navigation" />
+                </div>
+            </header>
+
+            <main>
+                <section className="articles">
+                    <div className="container grid">
+                        <section className="articles__big-column">
+                            {articles.items.slice(0, 3).map((item) => {
+                                return (
+                                    <MainArticle
+                                        key={item.title}
+                                        title={item.title}
+                                        description={item.description}
+                                        image={item.image ? item.image : './images/image1.png'}
+                                        category={articles.categories.find(({id}) => item.category_id === id).name}
+                                        source={articles.sources.find(({id}) => item.source_id === id).name}
+                                    />
+                                )
+                            })}
+                        </section>
+                        <section className="articles__small-column">
+                            {articles.items.slice(3, 12).map((item) => {
+                                return (
+                                    <SmallArticle
+                                        key={item.title}
+                                        title={item.title}
+                                        source={articles.sources.find(({id}) => item.source_id === id).name}
+                                        date={item.date}
+                                    />
+                                )
+                            })}
+                        </section>
+                    </div>
+                </section>
+            </main>
+
+            <footer className="footer">
+                <div className="container">
+                    <Navigation onNavClick={onNavClick} currentCategory={category} className="footer__navigation" />
+                    <div className="footer__bottom">
+                        <p className="footer__text">Сделано на Frontend курсе в <a className="footer__link" href="https://karpov.courses/frontend" target="_blank">Karpov.Courses</a></p>
+                        <p className="footer__text footer__text--gray">© 2021</p>
+                    </div>
+                </div>
+            </footer>
+        </React.Fragment>
+    )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
