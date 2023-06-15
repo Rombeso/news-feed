@@ -1,0 +1,28 @@
+.navigation__logo {
+    display: block;
+}
+
+.navigation__logo-image {
+    width: 100%;
+}
+
+.navigation__list {
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+}
+
+.navigation__item {
+    margin-right: 60px;
+}
+
+.navigation__item:last-child {
+    margin-right: 0;
+}
+
+.navigation__link {
+    font-size: 24px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+}
