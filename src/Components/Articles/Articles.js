@@ -3,7 +3,7 @@ import {SmallArticle} from "../SmallArticle/SmallArticle.js";
 import React from "react";
 import './Articles.css'
 
-export const Articles = ({articles}) => {
+export const Articles = ({articles, onArticleClick}) => {
     return (
         <section className="articles">
             <div className="container grid">
@@ -17,6 +17,7 @@ export const Articles = ({articles}) => {
                                 image={item.image ? item.image : './images/image1.png'}
                                 category={articles.categories.find(({id}) => item.category_id === id).name}
                                 source={articles.sources.find(({id}) => item.source_id === id).name}
+                                onClick={() => onArticleClick(item.id)}
                             />
                         )
                     })}
@@ -29,6 +30,7 @@ export const Articles = ({articles}) => {
                                 title={item.title}
                                 source={articles.sources.find(({id}) => item.source_id === id).name}
                                 date={item.date}
+                                onClick={() => onArticleClick(item.id)}
                             />
                         )
                     })}

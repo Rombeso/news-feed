@@ -1,18 +1,23 @@
 import {categoryIds} from "../../utils.js";
 import { Navigation} from "../Navigation/Navigation.js";
 import {Articles} from "../Articles/Articles.js";
-import React from "react";
+import React, {useState} from "react";
 import './App.css'
+import {Article} from "../Article/Article";
 
 export const App = () => {
+    const [articleId, setArticleId] =  useState(null)
     const [category, setCategory] = React.useState('index');
     const [articles, setArticles] = React.useState({ items: [], categories: [], sources: [] });
-
+    console.log(articleId )
     const onNavClick = (e) => {
         e.preventDefault();
         setCategory(e.currentTarget.dataset.href);
     }
 
+    const onArticleClick = (id) => {
+        setArticleId(id)
+    }
     React.useEffect(() => {
         fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[category] || '')
             .then(response => response.json())
@@ -30,7 +35,10 @@ export const App = () => {
             </header>
 
             <main>
-                <Articles articles={articles} />
+                {articleId !== null
+                    ? <Article/>
+                    : <Articles articles={articles} onArticleClick={onArticleClick}/>
+                }
             </main>
 
             <footer className="footer">
