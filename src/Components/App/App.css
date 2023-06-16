@@ -1,83 +1,47 @@
 .header {
-    padding-top: 38px;
-    padding-bottom: 150px;
+  padding-top: 38px;
+  padding-bottom: 150px;
 }
 
 .header--article-page {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 
-.header__navigation .navigation__logo {
-    grid-column: span 4;
-    padding-right: 32px;
-}
-
-.header__navigation .navigation__list {
-    grid-column: 5/-1;
-}
-
-.header__navigation .navigation__link {
-    color: var(--color-primary);
-}
-
-.header__navigation .navigation__link--active,
-.header__navigation .navigation__link:hover {
-    color: var(--color-accent);
-}
 .footer {
-    padding-top: 22px;
-    padding-bottom: 56px;
-    background-color: var(--color-primary);
-    min-width: var(--container-width);
+  padding-top: 22px;
+  padding-bottom: 56px;
+  background-color: var(--color-primary);
+  min-width: var(--container-width);
 }
 
 .footer__bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
 
 .footer__text {
-    font-size: 24px;
-    line-height: 28px;
-    color: var(--color-white);
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--color-white);
 }
 
 .footer__text--gray {
-    font-size: 24px;
-    line-height: 28px;
-    color: var(--color-grey);
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--color-grey);
 }
 
 .footer__link {
-    color: var(--color-accent);
-    font-weight: 700;
-    cursor: pointer;
+  color: var(--color-accent);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .footer__link:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .footer__navigation {
-    margin-bottom: 47px;
-    align-items: center;
-}
-
-.footer__navigation .navigation__logo {
-    grid-column: span 2;
-    padding-right: 56px;
-}
-
-.footer__navigation .navigation__list {
-    grid-column: 3/-1;
-}
-
-.footer__navigation .navigation__link {
-    color: var(--color-white);
-}
-
-.footer__navigation .navigation__link--active,
-.footer__navigation .navigation__link:hover {
-    color: var(--color-accent);
+  margin-bottom: 47px;
 }
