@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard", "prettier"],
+  "rules": {
+    "selector-class-pattern": null,
+    "selector-anb-no-unmatchable": null,
+    "import-notation": "url"
+  }
+}

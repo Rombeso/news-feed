@@ -8,8 +8,9 @@
     "build": "webpack",
     "eslint": "eslint --ext .ts,.tsx,.js ./",
     "eslint-fix": "eslint --ext .ts,.tsx,.js ./ --fix",
-    "prettier": "prettier --write \"{**/*,*}.{tsx,js,ts}\"",
-    "prettier-check": "prettier --check \"{**/*,*}.{tsx,js,ts}\""
+    "prettier": "prettier --write ./",
+    "prettier-check": "prettier --check ./",
+    "stylelint": "stylelint \"src/{**/*,*}.css\""
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,10 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "style-loader": "^3.3.3",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-selector-bem-pattern": "^2.1.1",
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
