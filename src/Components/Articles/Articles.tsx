@@ -1,15 +1,23 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { MainArticle } from '../MainArticle/MainArticle';
 import { SmallArticle } from '../SmallArticle/SmallArticle';
 import './Articles.css';
 import { NewsAPI } from '../../types';
+import { categoryIds } from '../../utils';
 
-interface Props {
-  articles: NewsAPI;
-  onArticleClick: (id: number) => void;
-}
+export const Articles = () => {
+  const { categoryId = 'index' } = useParams();
+  const [articles, setArticles] = React.useState<NewsAPI>({ items: [], categories: [], sources: [] });
 
-export const Articles: FC<Props> = ({ articles, onArticleClick }) => {
+  React.useEffect(() => {
+    // @ts-ignore
+    fetch('https://frontend.karpovcourses.net/api/v2/ru/news/' + categoryIds[categoryId] || '')
+      .then((response) => response.json())
+      .then((response: NewsAPI) => {
+        setArticles(response);
+      });
+  }, [categoryId]);
   return (
     <section className="articles">
       <div className="container grid">
@@ -20,13 +28,13 @@ export const Articles: FC<Props> = ({ articles, onArticleClick }) => {
 
             return (
               <MainArticle
-                key={item.title}
+                key={item.id}
+                id={item.id}
                 title={item.title}
                 description={item.description}
                 image={item.image || '../images/image1.png'}
                 category={category ? category.name : ''}
                 source={source?.name || ''}
-                onClick={() => onArticleClick(item.id)}
               />
             );
           })}
@@ -36,11 +44,11 @@ export const Articles: FC<Props> = ({ articles, onArticleClick }) => {
             const source = articles.sources.find(({ id }) => item.source_id === id);
             return (
               <SmallArticle
-                key={item.title}
+                key={item.id}
+                id={item.id}
                 title={item.title}
                 source={source?.name || ''}
                 date={item.date}
-                onClick={() => onArticleClick(item.id)}
               />
             );
           })}

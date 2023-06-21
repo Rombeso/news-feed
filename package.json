@@ -33,16 +33,20 @@
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react": "^7.32.2",
+    "eslint-webpack-plugin": "^4.0.1",
     "html-webpack-plugin": "^5.5.3",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.13.0",
     "react-scripts": "^5.0.1",
     "style-loader": "^3.3.3",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^33.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1",
+    "stylelint-webpack-plugin": "^4.1.1",
     "webpack-dev-server": "^4.15.1"
   },
   "devDependencies": {
@@ -52,5 +56,9 @@
     "typescript": ">=3.3.1 <5.1.0",
     "webpack": "^5.87.0",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "pre-commit": [
+    "eslint",
+    "prettier-check"
+  ]
 }

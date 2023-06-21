@@ -2,33 +2,36 @@ import React, { FC } from 'react';
 import { categoryNames } from '../../utils';
 import './Navigation.css';
 import logo from '../../images/logo.svg';
+import { Link, NavLink } from 'react-router-dom';
 
 interface Props {
-  onNavClick: (event: React.MouseEvent<HTMLElement>) => void;
-  currentCategory: string;
   className?: string;
   placement: 'header' | 'footer';
 }
 
-export const Navigation: FC<Props> = ({ onNavClick, currentCategory, className = '', placement = 'header' }) => {
+export const Navigation: FC<Props> = ({ className = '', placement = 'header' }) => {
   return (
     <nav className={`grid navigation navigation--${placement} ${className}`}>
-      <a className="navigation__logo" data-href="index" href="#">
+      <Link to="/" className="navigation__logo">
         <img className="navigation__logo-image" src={logo} alt="Логотип" />
-      </a>
+      </Link>
       <ul className="navigation__list">
         {['index', 'fashion', 'technologies', 'sport', 'karpov'].map((item) => {
           return (
             <li className="navigation__item" key={item}>
-              <a
-                onClick={onNavClick}
-                className={`navigation__link ${currentCategory === item ? 'navigation__link--active' : ''}`}
-                data-href={item}
-                href="#"
+              <NavLink
+                to={item}
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? 'navigation__link'
+                    : isActive
+                    ? 'navigation__link navigation__link--active'
+                    : 'navigation__link'
+                }
               >
                 {/* @ts-ignore */}
                 {categoryNames[item]}
-              </a>
+              </NavLink>
             </li>
           );
         })}

@@ -1,6 +1,7 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-
+const EslintWebpackPlugin = require('eslint-webpack-plugin');
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
   entry: './src/script.tsx',
@@ -36,6 +37,12 @@ module.exports = {
   plugins: [
     new htmlWebpackPlugin({
       template: './src/index.html',
+    }),
+    // new StylelintWebpackPlugin({
+    //   files: '{**/*,*}.css',
+    // }),
+    new EslintWebpackPlugin({
+      files: '{**/*,*}.{tsx,ts,js}',
     }),
   ],
   devServer: {
