@@ -5,7 +5,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { Page } from '../Page/Page';
 import { AdminPage } from '../AdminPage/AdminPage';
 import { AdminArticles } from '../AdminArticles/AdminArticles';
-import { AdminArticlesItem } from '../AdminArticlesItem/AdminArticlesItem';
+import { AdminArticleItem } from '../AdminArticlesItem/AdminArticlesItem';
 
 export const App = () => {
   const { pathname } = useLocation();
@@ -28,7 +28,7 @@ export const App = () => {
         path={'/admin/create'}
         element={
           <AdminPage>
-            <AdminArticlesItem />
+            <AdminArticleItem />
           </AdminPage>
         }
       ></Route>
@@ -36,7 +36,7 @@ export const App = () => {
         path={'/admin/edit/:id'}
         element={
           <AdminPage>
-            <AdminArticlesItem />
+            <AdminArticleItem />
           </AdminPage>
         }
       ></Route>
