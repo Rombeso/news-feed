@@ -3,7 +3,7 @@
     "strict": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["dom.iterable", "dom"]
+    "lib": ["dom.iterable", "dom", "es2020"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
