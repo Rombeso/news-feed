@@ -5,6 +5,7 @@ import { SmallArticle } from '../SmallArticle/SmallArticle';
 import './Articles.css';
 import { NewsAPI } from '../../types';
 import { categoryIds } from '../../utils';
+import { PartnerArticle } from '../PartnerArticle/PartnerArticle';
 
 export const Articles = () => {
   const { categoryId = 'index' } = useParams();
@@ -53,6 +54,9 @@ export const Articles = () => {
             );
           })}
         </section>
+      </div>
+      <div className="articles__partner-article">
+        <PartnerArticle />
       </div>
     </section>
   );
